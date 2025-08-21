@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <!--  What is Domain? -->
+  <!--  Business Logic -->
+
+  <!--  What belongs here? -->
+  <!--  - Entities
+        - Value objects
+        - Domain events
+        - Domain services
+        - Interfaces
+        - Exceptions
+        - Enums
+  -->
+  
+  <ItemGroup>
+    <ProjectReference Include="..\SharedKernel\SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+# TypeScript Generation
+nswag.local.json
+nswag.temp.json
+generated/
