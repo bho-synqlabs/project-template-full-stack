@@ -15,6 +15,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
+    <PackageReference Include="NSwag.AspNetCore" />
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Serilog.Sinks.Seq" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
@@ -40,7 +42,7 @@
 
   <!-- NSwag TypeScript Generation -->
   <Target Name="NSwag" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
-    <Exec Command="$(NSwagExe_Net90) run nswag.json" ContinueOnError="true" />
+    <Exec Command="$(NSwagExe_Net90) run nswag.json /variables:Configuration=$(Configuration)" ContinueOnError="true" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" />
   </Target>
 
 </Project>

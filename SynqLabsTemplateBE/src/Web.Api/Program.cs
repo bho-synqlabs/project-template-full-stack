@@ -26,6 +26,7 @@ app.MapEndpoints();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseOpenApi();
     app.UseSwaggerWithUi();
 
     app.ApplyMigrations();
